@@ -12,6 +12,6 @@ class Recette(models.Model):
     # Étapes de préparation (peut être stockées sous forme de texte)
     etapes_preparation = models.TextField(verbose_name='les étapes a suivre pour crée la recette')
     # Durée de préparation (en minutes, par exemple)
-    duree_preparation = models.IntegerField(verbose_name='Temps de preparation')
+    duree_preparation = models.TimeField(verbose_name='Temps de preparation')
     # Photo optionnelle
     photo = models.ImageField(upload_to='photos/', null=True, blank=True)

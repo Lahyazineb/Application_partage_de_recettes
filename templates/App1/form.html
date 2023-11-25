@@ -161,7 +161,37 @@
                 
                 {% csrf_token %}
               
-                {{ form }}
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">nom de la recette</label>
+                  <div class="col-sm-10">
+                    
+                    {{form.nom}}
+                  </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Ingredients</label>
+                  <div class="col-sm-10">
+                    
+                    {{form.ingredients}}
+                  </div>
+                  <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Etapes de Preparation</label>
+                    <div class="col-sm-10">
+                     
+                      {{form.etapes_preparation}}
+                    </div>
+                <div class="row mb-3">
+                  <label for="inputTime" class="col-sm-2 col-form-label">Time </label>
+                  <div class="col-sm-10">
+                    
+                    {{form.duree_preparation}}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">File Upload</label>
+                  <div class="col-sm-10">
+                    
+                    {{form.photo}}
+                  </div>
                 <button type="submit">Save</button>
                 {% comment %} <div class="7">
                   {{form.nom}}
