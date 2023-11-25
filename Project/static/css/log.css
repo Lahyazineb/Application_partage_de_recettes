@@ -1,0 +1,185 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  background-position: center;
+  background: url("../img/44663.jpg") top right no-repeat;
+  font-family: verdana, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.login-container:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -8px;
+  display: inline-block;
+  height: 50%;
+  width: 98%;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: -1;
+  border-radius: 10px;
+}
+.login-container .login-box {
+  padding: 20px 50px;
+  background: #fff;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 2px 4px 4px #dcdcdc, -2px 4px 4px #dcdcdc;
+}
+.login-container .login-box .header {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  color: #008BC8;
+}
+.login-container .login-box .header:before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  display: inline-block;
+  height: 100%;
+  width: 8px;
+  background: #008BC8;
+}
+.login-container .login-box .content {
+  padding: 10px;
+}
+.login-container .login-box .content .input-box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+}
+.login-container .login-box .content .input-box input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #3E3F75;
+  height: 40px;
+  line-height: 40px;
+  font-size: 0.9em;
+  outline: none;
+  background: transparent;
+}
+.login-container .login-box .content .input-box input:focus + span:first-of-type, .login-container .login-box .content .input-box input:not(:placeholder-shown) + span:first-of-type {
+  font-size: 0.8em;
+  top: -10px;
+}
+.login-container .login-box .content .input-box input:focus ~ span:last-of-type, .login-container .login-box .content .input-box input:not(:placeholder-shown) ~ span:last-of-type {
+  width: 100%;
+}
+.login-container .login-box .content .input-box span:first-of-type {
+  color: #ccc;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  text-align-last: left;
+  pointer-events: none;
+  transition: all 0.1s linear;
+}
+.login-container .login-box .content .input-box span:last-of-type {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0px;
+  background: #008BC8;
+  transition: all 0.2s linear;
+}
+.login-container .login-box .content .input-box button {
+  width: 70%;
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: 15px;
+  color: #3E3F75;
+  cursor: pointer;
+}
+.login-container .login-box .content .input-box a {
+  display: inline-block;
+  text-decoration: none;
+  color: #3E3F75;
+  font-size: 0.9em;
+  padding-top: 20px;
+}
+.login-container .login-box.register-box {
+  background: #008BC8;
+  position: absolute;
+  top: 40px;
+  right: -40px;
+  width: 150px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50px;
+  transition: all 0.3s ease-in;
+}
+.login-container .login-box.register-box .header {
+  color: #fff;
+}
+.login-container .login-box.register-box .header:before {
+  background: #fff;
+  opacity: 0;
+}
+.login-container .login-box.register-box .header h3 {
+  position: relative;
+  top: -18px;
+  left: -30px;
+  font-size: 15px;
+  transition: all 0.3s linear;
+}
+.login-container .login-box.register-box .content .input-box {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.login-container .login-box.register-box .content .input-box input {
+  color: #fff;
+}
+.login-container .login-box.register-box .content .input-box span:last-of-type {
+  background: #fff;
+}
+.login-container .login-box.register-box:not(.open):hover {
+  cursor: pointer;
+}
+.login-container .login-box.register-box .close {
+  color: #fff;
+  font-size: 1.6em;
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  font-weight: bold;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.login-container .login-box.register-box.open {
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.login-container .login-box.register-box.open .header:before {
+  opacity: 1;
+}
+.login-container .login-box.register-box.open .header h3 {
+  top: 0;
+  left: 0;
+  font-size: initial;
+}
+.login-container .login-box.register-box.open .close {
+  transform: rotate(135deg);
+  top: 43px;
+  opacity: 1;
+  transition: all 0.3s 0.3s linear;
+}

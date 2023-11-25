@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Application partage de recettes </title>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  {% load  static %}
+
+
+  <!-- Vendor CSS Files -->
+  <link href="{%  static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{%  static 'vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{%  static 'vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{%  static 'vendor/quill/quill.snow.css'%}" rel="stylesheet">
+  <link href="{%  static 'vendor/quill/quill.bubble.css'%}" rel="stylesheet">
+  <link href="{%  static 'vendor/remixicon/remixicon.css'%}" rel="stylesheet">
+  <link href="{%  static 'vendor/simple-datatables/style.css'%}" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link rel="shortcut icon" href="https://resize.prod.femina.ladmedia.fr/rblr/652,438/img/var/2020-12/plat-le-plus-commande-au-monde.jpg">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .bg {
+      animation: slide 3s ease-in-out infinite alternate;
+      background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+      bottom: 0;
+      left: -50%;
+      opacity: .5;
+      position: fixed;
+      right: -50%;
+      top: 0;
+      z-index: -1;
+    }
+
+    .bg2 {
+      animation-direction: alternate-reverse;
+      animation-duration: 4s;
+    }
+
+    .bg3 {
+      animation-duration: 5s;
+    }
+
+    .content {
+      background-color: rgba(255, 255, 255, .8);
+      border-radius: .25em;
+      box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
+      box-sizing: border-box;
+      left: 50%;
+      padding: 10vmin;
+      position: fixed;
+      text-align: center;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      font-family: monospace;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(-25%);
+      }
+      100% {
+        transform: translateX(25%);
+      }
+    }
+  </style>
+</head>
+<body>
+  {% comment %} {% if messages %}
+  {% for message in messages %}
+  {% if message.level == 25 %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <i class="bi bi-check-circle me-1"></i>
+      {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% else %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <i class="bi bi-exclamation-octagon me-1"></i>
+      {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+{% endfor %}
+{% endif %} {% endcomment %}
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+  <div class="content">
+    <h1>Application partage de recettes  </h1>
+
+     <button type="button" class="btn btn-outline-success">  <a href="{% url "app1:login" %}"><i class="bi bi-star me-1"></i> Se conecter  </a> </button>
+     
+     
+     
+   
+   
+  </div>
+</body>
+</html>

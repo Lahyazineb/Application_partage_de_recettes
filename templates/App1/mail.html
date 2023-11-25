@@ -1,0 +1,14 @@
+{% autoescape off %}
+Bonjour {{ user.username }},
+
+Nous avons reçu une demande de réinitialisation du mot de passe de votre compte pour cette adresse électronique. Pour lancer la procédure de réinitialisation du mot de passe de votre compte, cliquez sur le lien ci-dessous.
+
+{{ protocol }}://{{ domain }}{% url 'app1:password_reset_confirm' uidb64=uid token=token %}
+
+Ce lien ne peut être utilisé qu'une seule fois. Si vous devez à nouveau réinitialiser votre mot de passe, veuillez visiter  {{ protocol }}://{{domain}} and request another reset.
+
+Si vous n'avez pas fait cette demande, vous pouvez simplement ignorer cet e-mail.
+
+L'équipe de support(LYDEC).
+
+{% endautoescape %}
