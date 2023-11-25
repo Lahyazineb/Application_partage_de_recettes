@@ -38,14 +38,12 @@ def login(request):
             user = authenticate(request, username=username , password=password)
             if user is not None:
                 login(request, user)
-                return redirect('app1:Profile')
-                
+                return redirect('app1:list')
             else :
-                
                 messages.info(request , "Le nom d'utilisateur ou le mot de passe est incorrect")
                 return redirect('app1:loginp')
         
-    return render(request, 'app1/Profile.html' )
+    return redirect('app1:list')
 
 def logoutuser(request):
     logout(request)
@@ -121,26 +119,24 @@ def passwordResetConfirm(request, uidb64, token):
 
 def Profile(request):
     return render(request, 'app1/Profile.html')
-def users(request):
+def logup(request):
     if request.method == 'POST':
         form = logupform(request.POST)
         if form.is_valid():
             form.save()
-            # Assuming 'referent' group exists
             username = form.cleaned_data.get('username')
             messages.success(request, f'Bonjour le compte de {username} a été créé avec succès')
-           
-            return redirect('app1:users')  # Redirect to the 'users' view after successful form submission
+            return redirect('app1:logup')
     else:
+        messages.error(request, 'Quelque chose a mal tourné')
         form = logupform()
-    user_list = User.objects.all()
-    context = {'form': form, 'user_list': user_list}  # Removed 'message' from context as it's not used
+
+    context = {'form': form}
     return render(request, 'app1/logup.html', context)
 def list(request):
 # query = request.POST.get('q', '')  # Get the value of the 'q' parameter from the URL query string
     listREC =Recette.objects.all()
     context = {'list': listREC,}
-    print(listREC,'""""""""""""""""""""""""""""""""')
     return render(request, 'App1/listREC.html', context)
 
 def create_recette(request):

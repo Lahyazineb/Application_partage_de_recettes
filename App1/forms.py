@@ -21,7 +21,8 @@ class logupform(UserCreationForm):
     email = forms.EmailField(help_text='A valid email address, please.', required=True)
     first_name= forms.CharField(label='Prénom ', max_length=600)
     last_name= forms.CharField(label='Nom de famille ', max_length=600)
-    username = forms.ChoiceField(label="Nom d'utilisateur" )
+    username = forms.CharField(label='Nom d utilisateur', max_length=600)
+    
     password1 = forms.CharField(label='Mot de passe', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirmer le mot de passe', widget=forms.PasswordInput)
     class Meta:

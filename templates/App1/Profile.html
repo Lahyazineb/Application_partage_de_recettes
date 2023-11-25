@@ -5,8 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Application lydec</title>
+  <title>Application partage de recettes</title>
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -21,7 +20,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/3/37/Logo_Lydec_2010.png">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="shortcut icon" href="https://resize.prod.femina.ladmedia.fr/rblr/652,438/img/var/2020-12/plat-le-plus-commande-au-monde.jpg">
   {% load  static %}
   <!-- Vendor CSS Files -->
   <link href="{%  static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
@@ -39,10 +38,10 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-    <a href="{% url 'app1:Profile' %}" class="logo d-flex align-items-center">
+      {% comment %} <a href="{% url 'app1:Profile' %}" class="logo d-flex align-items-center">
         <img src="{%  static 'img/ima.png'%}" alt="" >
         
-    </a>
+    </a> {% endcomment %}
     <i class="bi bi-list toggle-sidebar-btn"></i>
     </div>
     <nav class="header-nav ms-auto">
@@ -52,27 +51,23 @@
 
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
               <img src="{%  static 'img/pr.png'%}" alt="Profile" class="rounded-circle">
-              <span class="d-none d-md-block dropdown-toggle ps-2">{{user.username}}</span>
+              {% comment %} <span class="d-none d-md-block dropdown-toggle ps-2">{{user.username}}</span> {% endcomment %}
             </a>
   
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li class="dropdown-header">
-                <h6>{{user.username}}</h6>
-                {% if  user.is_staff %}
-                <span>Admin</span>
-                {% else %}
-                <span>Referent</span>
-                {% endif %}
+                {% comment %} <h6>{{user.username}}</h6> {% endcomment %}
+                
               </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
   
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="{% url 'app1:Profile'  %}">
+                {% comment %} <a class="dropdown-item d-flex align-items-center" href="{% url 'app1:Profile'  %}"> 
                   <i class="bi bi-person"></i>
                   <span>Mon Profile</span>
-                </a>
+                </a>{% endcomment %}
               </li>
               <li>
                 <hr class="dropdown-divider">
@@ -82,10 +77,10 @@
 
   
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="{% url 'app1:logoutuser'  %}">
+                {% comment %} <a class="dropdown-item d-flex align-items-center" href="{% url 'app1:logoutuser'  %}">
                   <i class="bi bi-box-arrow-right"></i>
                   <span>Se déconnecter</span>
-                </a>
+                </a> {% endcomment %}
               </li>
   
             </ul>
@@ -94,145 +89,38 @@
         </ul>
       </nav>
   </header>
-  
-  {% if  user.is_staff %}
+
+
+
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-speedometer2"></i><span>Tableau De Bord</span><i class="bi bi-chevron-down ms-auto"></i>
+  
+  
+       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-globe-europe-africa"></i><span> Recettes</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'app1:Dash' %}">
-              <i class="bi bi-circle"></i><span>Tableau de Bord</span>
+            <a href="{% url 'app1:list'  %}">
+              <i class="bi bi-circle"></i><span>Tableau des  Recettes</span>
             </a>
           </li>
-          <li>
-            <a href="{% url 'app1:Dash1' %}">
-              <i class="bi bi-circle"></i><span>Affaires Lotissements</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'app1:Dash2' %}">
-              <i class="bi bi-circle"></i><span>Affaires D'Investissement</span>
-            </a>
-          </li>
+      
         </ul>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-buildings"></i><span>Data</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'app1:list_Met' %}">
-              <i class="bi bi-circle"></i><span>Liste des affaires de Lotissement </span>
+            <a href="{% url 'app1:create_recette'  %}">
+              <i class="bi bi-circle"></i><span>Ajouter des Recettes</span>
             </a>
           </li>
-          <li>
-            <a href="{% url 'app1:list_Met_inv' %}">
-              <i class="bi bi-circle"></i><span>Liste des affaires d'Investissement</span>
-            </a>
-          </li>
-          
+      
         </ul>
-      </li>
-
-<li class="nav-item">
-        <a class="nav-link collapsed"  href="{% url 'app1:Geo' %}">
-          <i class="bi bi-globe-europe-africa"></i><span>Géoportail</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url 'app1:users' %}">
-          <i class="bi bi-person-add"></i><span>Ajouter des referents</span>
-        </a>
-      </li>
+      </li> 
+      
   </aside>
-{% else %}
 
-
-<aside id="sidebar" class="sidebar">
-
-  <ul class="sidebar-nav" id="sidebar-nav">
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-speedometer2"></i><span>Tableau De Bord</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="{% url 'app1:Dash' %}">
-            <i class="bi bi-circle"></i><span>Tableau de Bord</span>
-          </a>
-        </li>
-        <li>
-          <a href="{% url 'app1:Dash1' %}">
-            <i class="bi bi-circle"></i><span>Affaires Lotissements</span>
-          </a>
-        </li>
-        <li>
-          <a href="{% url 'app1:Dash2' %}">
-            <i class="bi bi-circle"></i><span>Affaires D'Investissement</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-buildings"></i><span>Lotissement</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="{% url 'app1:inup' %}">
-            <i class="bi bi-circle"></i><span>Ajouter des affaires de Lotissement </span>
-          </a>
-        </li>
-        <li>
-          <a href="{% url 'app1:list' %}">
-            <i class="bi bi-circle"></i><span>Liste des affaires de Lotissement</span>
-          </a>
-        </li>
-        
-      </ul>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-hammer"></i><span>Investissement</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="{% url 'app1:inup_Inv' %}">
-            <i class="bi bi-circle"></i><span>Ajouter des affaires d'Investissement </span>
-          </a>
-        </li>
-        <li>
-          <a href="{% url 'app1:list_Inv' %}">
-            <i class="bi bi-circle"></i><span>Liste des affaires d'Investissement</span>
-          </a>
-        </li>
-
-      </ul>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-globe-europe-africa"></i><span>Geoportail</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="{% url 'app1:Geo' %}">
-            <i class="bi bi-circle"></i><span>Add shapefiles</span>
-          </a>
-        </li>
-    
-      </ul>
-    </li>
-    
-</aside>
-{% endif %}
     <main id="main" class="main">
   
       <div class="pagetitle">
@@ -284,11 +172,7 @@
                       <div class="col-lg-3 col-md-4 label ">Nom d'utilisateur</div>
                       <div class="col-lg-9 col-md-8">{{user.username}}</div>
                     </div>
-  
-                    <div class="row">
-                      <div class="col-lg-3 col-md-4 label">Company</div>
-                      <div class="col-lg-9 col-md-8">Lydec</div>
-                    </div>
+
   
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Nom</div>
